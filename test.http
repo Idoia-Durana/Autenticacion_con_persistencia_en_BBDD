@@ -1,0 +1,64 @@
+### Registro de usuario
+POST http://localhost:3000/usuarios/register
+Content-Type: application/json
+
+{
+    "nombre": "Alex", 
+    "email": "alex@example.com",
+    "password": "123456"
+}
+
+### Inicio de sesión (obtener token) de usuario
+POST http://localhost:3000/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "123456"
+}
+### eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDU2YzkwOThiYzNkZmMyMGNmNDkiLCJyb2wiOiJ1c3VhcmlvIiwiaWF0IjoxNzQzNjY4NTk5LCJleHAiOjE3NDM2NzIxOTl9.ZjrJcFbe2SEoZUIOXdoRhN2T1ON72GOiVvZp4sclzQs
+
+### Obtener lista de usuarios (Requiere token)
+GET http://localhost:3000/usuarios
+Authorization: Bearer TOKEN_AQUI
+### Obtener lista de usuarios
+GET http://localhost:3000/usuarios
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDIwZmRkNzNlNGQwZWE1NWUwYzciLCJyb2wiOiJhZG1pbiIsImlhdCI6MTc0MzY3MDc0MywiZXhwIjoxNzQzNjc0MzQzfQ.Q-mbC2xZXFWo9t2Tz2Wl-eWwh-dL7PcTBGzsbqYqjGA
+### Obtener lista de películas
+GET http://localhost:3000/peliculas
+
+### Agregar película con datos incompletos, dará error (Requiere token)
+POST http://localhost:3000/peliculas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDU2YzkwOThiYzNkZmMyMGNmNDkiLCJyb2wiOiJ1c3VhcmlvIiwiaWF0IjoxNzQzNjY4NTk5LCJleHAiOjE3NDM2NzIxOTl9.ZjrJcFbe2SEoZUIOXdoRhN2T1ON72GOiVvZp4sclzQs
+Content-Type: application/json
+
+{
+    "titulo": "Lo que el viento se llevo"
+}
+### Agregar película con datos completos (Requiere token)
+POST http://localhost:3000/peliculas
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDU2YzkwOThiYzNkZmMyMGNmNDkiLCJyb2wiOiJ1c3VhcmlvIiwiaWF0IjoxNzQzNjY4NTk5LCJleHAiOjE3NDM2NzIxOTl9.ZjrJcFbe2SEoZUIOXdoRhN2T1ON72GOiVvZp4sclzQs
+Content-Type: application/json
+
+{
+    "titulo": "Inception",
+    "director": "Christopher Nolan",
+    "año": 2010,
+    "generos": ["Ciencia ficción", "Acción"],
+    "actores": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]
+}
+
+### Modificar película (Requiere token y permisos de admin)
+PUT http://localhost:3000/peliculas/67ee4d6a3400fe1f890f0c7d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDIwZmRkNzNlNGQwZWE1NWUwYzciLCJyb2wiOiJhZG1pbiIsImlhdCI6MTc0MzY3MDc0MywiZXhwIjoxNzQzNjc0MzQzfQ.Q-mbC2xZXFWo9t2Tz2Wl-eWwh-dL7PcTBGzsbqYqjGA
+Content-Type: application/json
+
+{
+    "titulo": "Inception - Editado por admin"
+}
+
+### Eliminar película (Requiere token y permisos de admin)
+DELETE http://localhost:3000/peliculas/67ee4d6a3400fe1f890f0c7d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDIwZmRkNzNlNGQwZWE1NWUwYzciLCJyb2wiOiJhZG1pbiIsImlhdCI6MTc0MzY3MDc0MywiZXhwIjoxNzQzNjc0MzQzfQ.Q-mbC2xZXFWo9t2Tz2Wl-eWwh-dL7PcTBGzsbqYqjGA
+
+
