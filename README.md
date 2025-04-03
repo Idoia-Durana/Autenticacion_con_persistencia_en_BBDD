@@ -13,4 +13,4 @@ Este sistema puede servir como base para aplicaciones que requieran un manejo ad
 ## Tecnologías utilizadas:
 - **JavaScript**
 - **Node.js**
-- **MongoDB** (o cualquier BBDD que se desee integrar)
+- **MongoDB**
